@@ -1,0 +1,33 @@
+---
+
+---
+
+<section class="hero">
+  <div class="container">
+    <h1>Nice to meet you! I'm <span class="underline">Adam Keyes</span>.</h1>
+    <p>
+      Based in the UK, I’m a front-end developer passionate about building
+      accessible web apps that users love.
+    </p>
+    <a href="#">Contact Me</a>
+  </div>
+</section>
+
+<style lang="scss">
+  .hero {
+    padding-top: clamp(5rem, 23.2535rem + -20.2817vw, 18.5rem);
+
+    @include bp-max(md) {
+      text-align: center;
+    }
+  }
+
+  .container {
+    display: grid;
+    gap: clamp(1.5rem, 0.6197rem + 3.7559vw, 4rem);
+  }
+
+  p {
+    max-width: 445px;
+  }
+</style>

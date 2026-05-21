@@ -132,6 +132,39 @@ button {
   background: none;
 }
 
+section {
+  position: relative;
+  z-index: 100;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-header-text);
+  line-height: 1;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 1.4437rem + 4.507vw, 5.5rem);
+  letter-spacing: -2.5px;
+}
+
+a {
+  color: var(--color-header-text);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2.286px;
+  line-height: 1.625;
+  text-decoration: 2px var(--color-primary) underline;
+  text-transform: uppercase;
+  text-underline-offset: 10px;
+  &:hover {
+    color: var(--color-primary);
+  }
+}
 /*~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~>
 <~~         Utilities          ~~>
 <~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~*/
@@ -141,10 +174,11 @@ button {
   margin: auto; /* TODO: revisit if i like this*/
   max-width: var(--container-max);
   position: relative;
+}
 
-  @include bp-max(md) {
-    width: 90%;
-  }
+.underline {
+  text-decoration: 4px var(--color-primary) underline;
+  text-underline-offset: 7px;
 }
 
 /* Skip to main content link - accessible to keyboard users and screen readers */
