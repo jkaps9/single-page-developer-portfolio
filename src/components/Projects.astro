@@ -1,5 +1,38 @@
 ---
+import Project from "./Project.astro";
 
+const projectItems = [
+  {
+    imagePath: "/src/assets/images/thumbnail-project-1-large.webp",
+    title: "Design Portfolio",
+    skills: ["HTML", "CSS"],
+  },
+  {
+    imagePath: "/src/assets/images/thumbnail-project-2-large.webp",
+    title: "E-Learning Landing Page",
+    skills: ["HTML", "CSS"],
+  },
+  {
+    imagePath: "/src/assets/images/thumbnail-project-3-large.webp",
+    title: "Todo Web App",
+    skills: ["HTML", "CSS", "Javascript"],
+  },
+  {
+    imagePath: "/src/assets/images/thumbnail-project-4-large.webp",
+    title: "Entertainment Web App",
+    skills: ["HTML", "CSS", "Javascript"],
+  },
+  {
+    imagePath: "/src/assets/images/thumbnail-project-5-large.webp",
+    title: "Memory Game",
+    skills: ["HTML", "CSS", "Javascript"],
+  },
+  {
+    imagePath: "/src/assets/images/thumbnail-project-6-large.webp",
+    title: "Art Gallery Showcase",
+    skills: ["HTML", "CSS", "Javascript"],
+  },
+];
 ---
 
 <section class="projects">
@@ -8,6 +41,19 @@
       <h2>Projects</h2>
       <a href="#">Contact Me</a>
     </div>
+    <ul class="projects__list">
+      {
+        projectItems.map((item) => (
+          <li class="projects__item">
+            <Project
+              imagePath={item.imagePath}
+              title={item.title}
+              skills={item.skills}
+            />
+          </li>
+        ))
+      }
+    </ul>
   </div>
 </section>
 
