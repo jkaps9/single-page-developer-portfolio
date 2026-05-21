@@ -16,10 +16,30 @@ import TwitterIcon from "@assets/images/icon-twitter.svg";
       <li class="socials__item"><LinkedinIcon /></li>
       <li class="socials__item"><TwitterIcon /></li>
     </ul>
+    <div class="header__image">
+      <picture>
+        <source
+          srcset="/src/assets/images/image-profile-desktop.webp"
+          media="(min-width:1024px)"
+        />
+        <source
+          srcset="/src/assets/images/image-profile-tablet.webp"
+          media="(min-width:768px)"
+        />
+        <img
+          src="/src/assets/images/image-profile-mobile.webp"
+          alt="Adam Keyes headshot"
+        />
+      </picture>
+    </div>
   </div>
 </header>
 
 <style lang="scss">
+  header {
+    position: relative;
+    z-index: 10;
+  }
   .container {
     align-items: center;
     display: flex;
@@ -34,6 +54,34 @@ import TwitterIcon from "@assets/images/icon-twitter.svg";
     @include bp(md) {
       flex-direction: row;
       justify-content: space-between;
+    }
+
+    .logo,
+    .socials {
+      position: relative;
+      z-index: 10;
+    }
+  }
+
+  .header__image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 9;
+    @include bp-max(md) {
+      left: 0;
+      max-width: 174px;
+      margin: 0 auto;
+    }
+
+    @include bp(md) {
+      right: -5%;
+      max-width: 322px;
+    }
+
+    @include bp(lg) {
+      right: -1.5rem;
+      max-width: 445px;
     }
   }
 
