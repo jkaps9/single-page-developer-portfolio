@@ -1,0 +1,74 @@
+---
+
+---
+
+<section class="contact">
+  <div class="container">
+    <form id="contact-form">
+      <header class="form__header">
+        <h2>Contact</h2>
+        <p>
+          I would love to hear about your project and how I could help. Please
+          fill in the form, and I’ll get back to you as soon as possible.
+        </p>
+      </header>
+      <div class="form-inputs">
+        <input
+          autocomplete="name"
+          type="text"
+          name="name"
+          placeholder="NAME"
+          required
+        />
+        <input
+          autocomplete="email"
+          type="email"
+          name="email"
+          placeholder="EMAIL"
+          required
+        />
+
+        <textarea name="message"></textarea>
+
+        <button class="btn--link">Send Message</button>
+      </div>
+    </form>
+  </div>
+
+  <style lang="scss">
+    .contact {
+      background-color: var(--color-background-card);
+      padding-block: clamp(3.75rem, 3.3099rem + 1.8779vw, 5rem);
+      text-align: center;
+    }
+
+    form {
+      display: grid;
+      gap: 3rem;
+      margin: 0 auto;
+      max-width: 445px;
+
+      @include bp(lg) {
+        grid-template-columns: repeat(2, 445px);
+        justify-content: space-between;
+        max-width: 100%;
+        text-align: start;
+      }
+
+      header {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(1.25rem, 0.8979rem + 1.5023vw, 2.25rem);
+      }
+
+      .form-inputs {
+        display: grid;
+        gap: 2rem;
+      }
+
+      button {
+        margin-left: auto;
+      }
+    }
+  </style>
+</section>
