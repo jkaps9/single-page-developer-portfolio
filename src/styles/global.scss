@@ -130,6 +130,21 @@ button {
   background: none;
 }
 
+/*~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~>
+<~~         Utilities          ~~>
+<~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~*/
+
+.container {
+  width: 95%;
+  margin: auto; /* TODO: revisit if i like this*/
+  max-width: var(--container-max);
+  position: relative;
+
+  @include bp-max(md) {
+    width: 90%;
+  }
+}
+
 /* Skip to main content link - accessible to keyboard users and screen readers */
 .skip {
   position: absolute;
