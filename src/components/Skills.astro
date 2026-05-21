@@ -1,0 +1,25 @@
+---
+const skills = [
+  { title: "HTML", yearsExperience: 4 },
+  { title: "CSS", yearsExperience: 4 },
+  { title: "Javascript", yearsExperience: 4 },
+  { title: "Accessibility", yearsExperience: 4 },
+  { title: "React", yearsExperience: 3 },
+  { title: "Sass", yearsExperience: 3 },
+];
+---
+
+<section class="skills">
+  <div class="container">
+    <ul class="skills__list">
+      {
+        skills.map((skill) => (
+          <li class="skills__item">
+            <h3>{skill.title}</h3>
+            <p>{skill.yearsExperience} Years Experience</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
