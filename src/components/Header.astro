@@ -1,5 +1,8 @@
 ---
-
+import GithubIcon from "@assets/images/icon-github.svg";
+import FrontendMentorIcon from "@assets/images/icon-frontend-mentor.svg";
+import LinkedinIcon from "@assets/images/icon-linkedin.svg";
+import TwitterIcon from "@assets/images/icon-twitter.svg";
 ---
 
 <header>
@@ -7,5 +10,52 @@
     <div class="logo">
       <p>adamkeyes</p>
     </div>
+    <ul class="socials">
+      <li class="socials__item"><GithubIcon /></li>
+      <li class="socials__item"><FrontendMentorIcon /></li>
+      <li class="socials__item"><LinkedinIcon /></li>
+      <li class="socials__item"><TwitterIcon /></li>
+    </ul>
   </div>
 </header>
+
+<style lang="scss">
+  .container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-block: clamp(1.25rem, 0.6338rem + 2.6291vw, 3rem);
+
+    @include bp-max(md) {
+      gap: 1.25rem;
+      max-width: 174px;
+    }
+
+    @include bp(md) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .logo {
+    flex: 1;
+  }
+
+  .logo p {
+    color: var(--color-header-text);
+    font-size: clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem);
+  }
+
+  .socials {
+    display: flex;
+    justify-content: space-between;
+
+    @include bp-max(md) {
+      width: stretch;
+    }
+
+    @include bp(md) {
+      gap: 2rem;
+    }
+  }
+</style>
