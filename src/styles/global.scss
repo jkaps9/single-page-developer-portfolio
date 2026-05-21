@@ -147,11 +147,17 @@ h6 {
   line-height: 1;
 }
 
-h1 {
+h1,
+h2 {
   font-size: clamp(2.5rem, 1.4437rem + 4.507vw, 5.5rem);
   letter-spacing: -2.5px;
 }
 
+h3 {
+  font-size: clamp(2rem, 1.6479rem + 1.5023vw, 3rem);
+  letter-spacing: -1.5px;
+  line-height: 1.16;
+}
 a {
   color: var(--color-header-text);
   font-size: 1rem;
