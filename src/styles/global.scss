@@ -133,6 +133,7 @@ button {
 }
 
 section {
+  padding-top: clamp(5rem, 1.941rem + 13.0516vw, 13.6875rem);
   position: relative;
   z-index: 100;
 }
