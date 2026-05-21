@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+
+const { imagePath, imageAlt, title, skills = ["HTML"] } = Astro.props;
+---
+
+<div class="project">
+  <div class="project__image">
+    <Image
+      src={imagePath}
+      alt={imageAlt}
+    />
+  </div>
+  <h4 class="project__title">{title}</h4>
+  <ul class="skills-list">
+    {
+      skills.map((skill: String) => (
+        <span class="skills-list__item">{skill}</span>
+      ))
+    }
+  </ul>
+  <div class="links">
+    <a href="#">View Project</a>
+    <a href="#">View Code</a>
+  </div>
+</div>
