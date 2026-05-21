@@ -71,9 +71,11 @@ if (!images[imagePath])
         }
       }
       &:hover {
-        cursor: pointer;
-        &::before {
-          display: block;
+        @include bp(lg) {
+          cursor: pointer;
+          &::before {
+            display: block;
+          }
         }
         .hover-links {
           @include bp(lg) {
