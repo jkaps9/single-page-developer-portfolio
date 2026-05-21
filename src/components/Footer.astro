@@ -7,7 +7,7 @@ import TwitterIcon from "@assets/images/icon-twitter.svg";
 import Logo from "./Logo.astro";
 ---
 
-<header>
+<footer>
   <div class="container">
     <Logo />
     <ul class="socials">
@@ -16,70 +16,27 @@ import Logo from "./Logo.astro";
       <li class="socials__item"><LinkedinIcon /></li>
       <li class="socials__item"><TwitterIcon /></li>
     </ul>
-    <div class="header__image">
-      <picture>
-        <source
-          srcset="/src/assets/images/image-profile-desktop.webp"
-          media="(min-width:1024px)"
-        />
-        <source
-          srcset="/src/assets/images/image-profile-tablet.webp"
-          media="(min-width:768px)"
-        />
-        <img
-          src="/src/assets/images/image-profile-mobile.webp"
-          alt="Adam Keyes headshot"
-        />
-      </picture>
-    </div>
   </div>
-</header>
+</footer>
 
 <style lang="scss">
-  header {
-    position: relative;
-    z-index: 10;
+  footer {
+    background-color: var(--color-background-card);
   }
   .container {
     align-items: center;
+    border-top: 1px solid var(--color-header-text);
     display: flex;
     flex-direction: column;
     padding-block: clamp(1.25rem, 0.6338rem + 2.6291vw, 3rem);
 
     @include bp-max(md) {
       gap: 1.25rem;
-      max-width: 174px;
     }
 
     @include bp(md) {
       flex-direction: row;
       justify-content: space-between;
-    }
-    .socials {
-      position: relative;
-      z-index: 10;
-    }
-  }
-
-  .header__image {
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: -1;
-    @include bp-max(md) {
-      left: 0;
-      max-width: 174px;
-      margin: 0 auto;
-    }
-
-    @include bp(md) {
-      right: -5%;
-      max-width: 322px;
-    }
-
-    @include bp(lg) {
-      right: -1.5rem;
-      max-width: 445px;
     }
   }
 
@@ -88,6 +45,7 @@ import Logo from "./Logo.astro";
     justify-content: space-between;
 
     @include bp-max(md) {
+      max-width: 174px;
       width: stretch;
     }
 
