@@ -62,5 +62,17 @@ const projectItems = [
     align-items: center;
     display: flex;
     justify-content: space-between;
+    margin-bottom: clamp(2.5rem, 1.6197rem + 3.7559vw, 5rem);
+  }
+
+  .projects {
+    &__list {
+      display: grid;
+      gap: clamp(1.5rem, 0.5317rem + 4.1315vw, 4.25rem)
+        clamp(1.5rem, 1.368rem + 0.5634vw, 1.875rem);
+      @include bp(md) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
   }
 </style>

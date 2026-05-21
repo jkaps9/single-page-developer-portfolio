@@ -19,17 +19,88 @@ if (!images[imagePath])
       src={images[imagePath]()}
       alt={imageAlt}
     />
+    <div class="hover-links">
+      <a href="#">View Project</a>
+      <a href="#">View Code</a>
+    </div>
   </div>
-  <h4 class="project__title">{title}</h4>
-  <ul class="skills-list">
-    {
-      skills.map((skill: String) => (
-        <span class="skills-list__item">{skill}</span>
-      ))
-    }
-  </ul>
-  <div class="links">
+  <div class="project__details">
+    <h4 class="project__title">{title}</h4>
+    <ul class="skills-list">
+      {
+        skills.map((skill: String) => (
+          <li class="skills-list__item">{skill}</li>
+        ))
+      }
+    </ul>
+  </div>
+  <div class="project__links">
     <a href="#">View Project</a>
     <a href="#">View Code</a>
   </div>
 </div>
+
+<style lang="scss">
+  .project {
+    display: grid;
+    gap: 1.25rem;
+    position: relative;
+    &__image {
+      position: relative;
+      &::before {
+        background: #000;
+        bottom: 0;
+        content: "";
+        display: none;
+        left: 0;
+        opacity: 0.75;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+      .hover-links {
+        display: none;
+        @include bp(lg) {
+          flex-direction: column;
+          gap: 1.875rem;
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+        }
+      }
+      &:hover {
+        cursor: pointer;
+        &::before {
+          display: block;
+        }
+        .hover-links {
+          @include bp(lg) {
+            display: flex;
+          }
+        }
+      }
+    }
+
+    &__details {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    &__links {
+      display: flex;
+      gap: 1.875rem;
+      @include bp(lg) {
+        display: none;
+      }
+    }
+  }
+  h4 {
+    text-transform: uppercase;
+  }
+  .skills-list {
+    display: flex;
+    gap: 1.125rem;
+  }
+</style>
