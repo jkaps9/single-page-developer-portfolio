@@ -33,7 +33,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/jkaps9/single-page-developer-portfolio](https://github.com/jkaps9/single-page-developer-portfolio)
-- Live Site URL: [TBD](TBD)
+- Live Site URL: [https://jkaps9.github.io/single-page-developer-portfolio/](https://jkaps9.github.io/single-page-developer-portfolio/)
 
 ## My process
 
