@@ -111,6 +111,7 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
     if (email instanceof HTMLInputElement && email.validity.valid) {
       email.classList.remove("error");
       email.setAttribute("aria-invalid", "false");
+      errorMessage.textContent = "";
     } else {
       showError();
     }
