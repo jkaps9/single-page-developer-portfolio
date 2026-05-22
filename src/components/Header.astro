@@ -3,6 +3,7 @@ import GithubIcon from "@assets/images/icon-github.svg";
 import FrontendMentorIcon from "@assets/images/icon-frontend-mentor.svg";
 import LinkedinIcon from "@assets/images/icon-linkedin.svg";
 import TwitterIcon from "@assets/images/icon-twitter.svg";
+import CircleSvg from "@assets/images/pattern-circle.svg";
 
 import Logo from "./Logo.astro";
 ---
@@ -31,6 +32,9 @@ import Logo from "./Logo.astro";
           alt="Adam Keyes headshot"
         />
       </picture>
+      <div class="svg">
+        <CircleSvg />
+      </div>
     </div>
   </div>
 </header>
@@ -80,6 +84,25 @@ import Logo from "./Logo.astro";
     @include bp(lg) {
       right: -1.5rem;
       max-width: 445px;
+    }
+  }
+
+  .svg {
+    bottom: 0;
+    height: 129px;
+    position: absolute;
+    right: -145px;
+    width: 129px;
+    z-index: 0;
+
+    @include bp(md) {
+      right: -64px;
+    }
+
+    @include bp(lg) {
+      bottom: 70px;
+      left: -64px;
+      right: auto;
     }
   }
 
