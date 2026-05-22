@@ -3,7 +3,8 @@ import { defineConfig, fontProviders } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://example.com", //TODO: update me
+  site: "https://jkaps9.github.io",
+  base: "/single-page-developer-portfolio",
   fonts: [
     {
       provider: fontProviders.fontsource(),
