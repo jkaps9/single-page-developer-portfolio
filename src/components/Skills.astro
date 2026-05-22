@@ -1,4 +1,6 @@
 ---
+import RingsSvg from "@assets/images/pattern-rings.svg";
+
 const skills = [
   { title: "HTML", yearsExperience: 4 },
   { title: "CSS", yearsExperience: 4 },
@@ -10,6 +12,9 @@ const skills = [
 ---
 
 <section class="skills">
+  <div class="svg">
+    <RingsSvg />
+  </div>
   <div class="container">
     <ul class="skills__list">
       {
@@ -26,6 +31,7 @@ const skills = [
 
 <style lang="scss">
   .skills {
+    position: relative;
     .container {
       border-top: 1px solid var(--color-header-text);
       padding-block: clamp(2.5rem, 1.7958rem + 3.0047vw, 4.5rem);
@@ -34,6 +40,7 @@ const skills = [
         border-bottom: 1px solid var(--color-header-text);
       }
     }
+
     &__list {
       display: grid;
       gap: clamp(1.5rem, 0.7518rem + 3.1925vw, 3.625rem)
@@ -48,6 +55,24 @@ const skills = [
     &__item {
       display: grid;
       gap: clamp(0.0625rem, -0.2236rem + 1.2207vw, 0.875rem);
+    }
+  }
+
+  .svg {
+    bottom: -65px;
+    height: 129px;
+    position: absolute;
+    right: -265px;
+    width: 530px;
+    z-index: -1;
+
+    @include bp(md) {
+      bottom: clamp(0.25rem, 0.0739rem + 0.7512vw, 0.75rem);
+      right: -345px;
+    }
+
+    @include bp(lg) {
+      right: -225px;
     }
   }
 </style>
