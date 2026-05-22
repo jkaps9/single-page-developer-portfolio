@@ -52,6 +52,7 @@ body {
   line-height: $line-height-base;
   color: var(--color-body-text);
   background-color: var(--color-background);
+  overflow-x: hidden;
   /* 5. Improve text rendering */
   -webkit-font-smoothing: antialiased;
 }
@@ -200,6 +201,17 @@ a,
   text-underline-offset: 7px;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+  white-space: nowrap; /* prevent wrapping */
+}
 /*~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~>
 <~~           Forms            ~~>
 <~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~*/
