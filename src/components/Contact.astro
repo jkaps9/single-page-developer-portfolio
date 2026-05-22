@@ -38,6 +38,9 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
             aria-label="email input"
             required
           />
+          <div class="error-icon">
+            <p>!</p>
+          </div>
           <div class="error-message">
             <p></p>
           </div>
@@ -54,7 +57,7 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
 <script>
   const form = document.querySelector("#contact-form");
   const email = document.getElementById("email");
-  const errorMessage = document.querySelector("#email + .error-message > p");
+  const errorMessage = document.querySelector("#email ~ .error-message > p");
 
   form?.addEventListener("submit", (e) => {
     if (email instanceof HTMLInputElement && !email.validity.valid) {
@@ -135,6 +138,28 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
     .form-inputs {
       display: grid;
       gap: 2rem;
+    }
+
+    .form-group {
+      position: relative;
+
+      .error-icon {
+        align-items: center;
+        border: 1px solid var(--color-error);
+        border-radius: 999px;
+        color: var(--color-error);
+        display: none;
+        height: 24px;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        top: 20px;
+        width: 24px;
+      }
+    }
+
+    input.error + .error-icon {
+      display: flex;
     }
 
     button {
