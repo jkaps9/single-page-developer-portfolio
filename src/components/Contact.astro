@@ -7,7 +7,10 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
     <RingsSvg />
   </div>
   <div class="container">
-    <form id="contact-form">
+    <form
+      id="contact-form"
+      novalidate
+    >
       <header class="form__header">
         <h2>Contact</h2>
         <p>
@@ -18,6 +21,7 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
       <div class="form-inputs">
         <input
           autocomplete="name"
+          id="name"
           type="text"
           name="name"
           placeholder="NAME"
@@ -25,11 +29,17 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
         />
         <input
           autocomplete="email"
+          id="email"
           type="email"
           name="email"
+          oninput="this.setCustomValidity('')"
           placeholder="EMAIL"
+          aria-label="email input"
           required
         />
+        <div class="error-message">
+          <p></p>
+        </div>
 
         <textarea name="message"></textarea>
 
@@ -37,60 +47,98 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
       </div>
     </form>
   </div>
-
-  <style lang="scss">
-    .contact {
-      background-color: var(--color-background-card);
-      padding-block: clamp(3.75rem, 3.3099rem + 1.8779vw, 5rem);
-      position: relative;
-      text-align: center;
-    }
-
-    .svg {
-      bottom: clamp(3.75rem, 3.3099rem + 1.8779vw, 5rem);
-      height: 129px;
-      left: -315px;
-      position: absolute;
-      width: 530px;
-      z-index: -1;
-
-      @include bp(md) {
-        bottom: 1rem;
-      }
-
-      @include bp(lg) {
-        bottom: 2rem;
-        left: -64px;
-      }
-    }
-
-    form {
-      display: grid;
-      gap: 3rem;
-      margin: 0 auto;
-      max-width: 445px;
-
-      @include bp(lg) {
-        grid-template-columns: repeat(2, 445px);
-        justify-content: space-between;
-        max-width: 100%;
-        text-align: start;
-      }
-
-      header {
-        display: flex;
-        flex-direction: column;
-        gap: clamp(1.25rem, 0.8979rem + 1.5023vw, 2.25rem);
-      }
-
-      .form-inputs {
-        display: grid;
-        gap: 2rem;
-      }
-
-      button {
-        margin-left: auto;
-      }
-    }
-  </style>
 </section>
+
+<script>
+  const form = document.querySelector("#contact-form");
+  const email = document.getElementById("email");
+  const errorMessage = document.querySelector("#email + .error-message > p");
+
+  form?.addEventListener("submit", (e) => {
+    if (email instanceof HTMLInputElement && !email.validity.valid) {
+      e.preventDefault();
+    }
+  });
+
+  email?.addEventListener("input", () => {
+    if (email instanceof HTMLInputElement && email.validity.valid) {
+      email.classList.remove("error");
+    } else {
+      showError();
+    }
+  });
+
+  function showError() {
+    if (email instanceof HTMLInputElement && email.validity.valueMissing) {
+      if (errorMessage)
+        errorMessage.textContent = "You need to enter an email address";
+    } else if (
+      email instanceof HTMLInputElement &&
+      email.validity.typeMismatch
+    ) {
+      if (errorMessage)
+        errorMessage.textContent =
+          "Entered value needs to be an email address.";
+    } else if (email instanceof HTMLInputElement && !email.validity.valid) {
+      if (errorMessage)
+        errorMessage.textContent = "Error, please check your email";
+    }
+    email?.classList.add("error");
+  }
+</script>
+
+<style lang="scss">
+  .contact {
+    background-color: var(--color-background-card);
+    padding-block: clamp(3.75rem, 3.3099rem + 1.8779vw, 5rem);
+    position: relative;
+    text-align: center;
+  }
+
+  .svg {
+    bottom: clamp(3.75rem, 3.3099rem + 1.8779vw, 5rem);
+    height: 129px;
+    left: -315px;
+    position: absolute;
+    width: 530px;
+    z-index: -1;
+
+    @include bp(md) {
+      bottom: 1rem;
+    }
+
+    @include bp(lg) {
+      bottom: 2rem;
+      left: -64px;
+    }
+  }
+
+  form {
+    display: grid;
+    gap: 3rem;
+    margin: 0 auto;
+    max-width: 445px;
+
+    @include bp(lg) {
+      grid-template-columns: repeat(2, 445px);
+      justify-content: space-between;
+      max-width: 100%;
+      text-align: start;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1.25rem, 0.8979rem + 1.5023vw, 2.25rem);
+    }
+
+    .form-inputs {
+      display: grid;
+      gap: 2rem;
+    }
+
+    button {
+      margin-left: auto;
+    }
+  }
+</style>
