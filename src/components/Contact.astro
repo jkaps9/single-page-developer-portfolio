@@ -27,18 +27,20 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
           placeholder="NAME"
           required
         />
-        <input
-          autocomplete="email"
-          id="email"
-          type="email"
-          name="email"
-          oninput="this.setCustomValidity('')"
-          placeholder="EMAIL"
-          aria-label="email input"
-          required
-        />
-        <div class="error-message">
-          <p></p>
+        <div class="form-group">
+          <input
+            autocomplete="email"
+            id="email"
+            type="email"
+            name="email"
+            oninput="this.setCustomValidity('')"
+            placeholder="EMAIL"
+            aria-label="email input"
+            required
+          />
+          <div class="error-message">
+            <p></p>
+          </div>
         </div>
 
         <textarea name="message"></textarea>
@@ -76,9 +78,7 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
       email instanceof HTMLInputElement &&
       email.validity.typeMismatch
     ) {
-      if (errorMessage)
-        errorMessage.textContent =
-          "Entered value needs to be an email address.";
+      if (errorMessage) errorMessage.textContent = "Sorry, invalid format here";
     } else if (email instanceof HTMLInputElement && !email.validity.valid) {
       if (errorMessage)
         errorMessage.textContent = "Error, please check your email";
@@ -139,6 +139,17 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
 
     button {
       margin-left: auto;
+    }
+  }
+
+  .error-message {
+    padding-top: 0.25rem;
+    text-align: end;
+    p {
+      color: var(--color-error);
+      font-size: 0.75rem;
+      letter-spacing: -0.167px;
+      line-height: 1.33;
     }
   }
 </style>
