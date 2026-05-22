@@ -7,6 +7,8 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
     <RingsSvg />
   </div>
   <div class="container">
+    <!-- prettier-ignore -->
+
     <form
       id="contact-form"
       novalidate
@@ -19,6 +21,12 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
         </p>
       </header>
       <div class="form-inputs">
+        <label
+          for="name"
+          class="sr-only"
+        >
+          Name
+        </label>
         <input
           autocomplete="name"
           id="name"
@@ -28,6 +36,12 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
           required
         />
         <div class="form-group">
+          <label
+            for="email"
+            class="sr-only"
+          >
+            Email
+          </label>
           <input
             autocomplete="email"
             id="email"
@@ -45,12 +59,19 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
             <p></p>
           </div>
         </div>
-
-        <textarea placeholder="Message"></textarea>
+        <label
+          for="message"
+          class="sr-only"
+        >
+          Name
+        </label>
+        <textarea placeholder="Message" id="message" name="message" required></textarea>
 
         <button class="btn--link">Send Message</button>
       </div>
     </form>
+
+
   </div>
 </section>
 
