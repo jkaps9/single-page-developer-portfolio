@@ -1,8 +1,11 @@
 ---
-
+import RingsSvg from "@assets/images/pattern-rings.svg";
 ---
 
 <section class="contact">
+  <div class="svg">
+    <RingsSvg />
+  </div>
   <div class="container">
     <form id="contact-form">
       <header class="form__header">
@@ -39,7 +42,26 @@
     .contact {
       background-color: var(--color-background-card);
       padding-block: clamp(3.75rem, 3.3099rem + 1.8779vw, 5rem);
+      position: relative;
       text-align: center;
+    }
+
+    .svg {
+      bottom: clamp(3.75rem, 3.3099rem + 1.8779vw, 5rem);
+      height: 129px;
+      left: -315px;
+      position: absolute;
+      width: 530px;
+      z-index: -1;
+
+      @include bp(md) {
+        bottom: 1rem;
+      }
+
+      @include bp(lg) {
+        bottom: 2rem;
+        left: -64px;
+      }
     }
 
     form {
