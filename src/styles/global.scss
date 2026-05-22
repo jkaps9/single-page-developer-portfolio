@@ -215,6 +215,7 @@ textarea {
   &::placeholder {
     color: inherit;
     opacity: 0.5;
+    text-transform: uppercase;
   }
 
   &:focus-visible {
