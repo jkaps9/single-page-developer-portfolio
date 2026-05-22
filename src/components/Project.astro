@@ -70,7 +70,8 @@ if (!images[imagePath])
           transform: translate(-50%, -50%);
         }
       }
-      &:hover {
+      &:hover,
+      &:focus-visible {
         @include bp(lg) {
           cursor: pointer;
           &::before {
