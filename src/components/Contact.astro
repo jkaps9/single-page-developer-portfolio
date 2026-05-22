@@ -50,13 +50,15 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
             oninput="this.setCustomValidity('')"
             placeholder="Email"
             aria-label="email input"
+            aria-describedby="email-error-message"
+            aria-invalid="false"
             required
           />
           <div class="error-icon">
             <p>!</p>
           </div>
           <div class="error-message">
-            <p></p>
+            <p id="email-error-message" role="alert" aria-live="assertive"></p>
           </div>
         </div>
         <label
@@ -79,10 +81,20 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
   const form = document.querySelector("#contact-form");
   const email = document.getElementById("email");
   const name = document.getElementById("name");
+  const message = document.getElementById("message");
   const errorMessage = document.querySelector("#email ~ .error-message > p");
 
   form?.addEventListener("submit", (e) => {
     if (email instanceof HTMLInputElement && !email.validity.valid) {
+      showError();
+      e.preventDefault();
+    }
+    if (name instanceof HTMLInputElement && !name.validity.valid) {
+      name.classList.add("error");
+      e.preventDefault();
+    }
+    if (message instanceof HTMLInputElement && !message.validity.valid) {
+      message.classList.add("error");
       e.preventDefault();
     }
   });
@@ -98,6 +110,7 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
   email?.addEventListener("input", () => {
     if (email instanceof HTMLInputElement && email.validity.valid) {
       email.classList.remove("error");
+      email.setAttribute("aria-invalid", "false");
     } else {
       showError();
     }
@@ -117,6 +130,7 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
         errorMessage.textContent = "Error, please check your email";
     }
     email?.classList.add("error");
+    email?.setAttribute("aria-invalid", "true");
   }
 </script>
 
