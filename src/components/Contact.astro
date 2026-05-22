@@ -57,11 +57,20 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
 <script>
   const form = document.querySelector("#contact-form");
   const email = document.getElementById("email");
+  const name = document.getElementById("name");
   const errorMessage = document.querySelector("#email ~ .error-message > p");
 
   form?.addEventListener("submit", (e) => {
     if (email instanceof HTMLInputElement && !email.validity.valid) {
       e.preventDefault();
+    }
+  });
+
+  name?.addEventListener("input", () => {
+    if (name instanceof HTMLInputElement && name.validity.valid) {
+      name.classList.remove("error");
+    } else {
+      name.classList.add("error");
     }
   });
 
