@@ -54,7 +54,7 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
             aria-invalid="false"
             required
           />
-          <div class="error-icon">
+          <div class="error-icon" aria-hidden="true">
             <p>!</p>
           </div>
           <div class="error-message">
@@ -65,7 +65,7 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
           for="message"
           class="sr-only"
         >
-          Name
+          Message
         </label>
         <textarea placeholder="Message" id="message" name="message" required></textarea>
 
@@ -93,7 +93,7 @@ import RingsSvg from "@assets/images/pattern-rings.svg";
       name.classList.add("error");
       e.preventDefault();
     }
-    if (message instanceof HTMLInputElement && !message.validity.valid) {
+    if (message instanceof HTMLTextAreaElement && !message.validity.valid) {
       message.classList.add("error");
       e.preventDefault();
     }
